@@ -1,0 +1,2 @@
+# ci-empty
+Codeigniter empty
