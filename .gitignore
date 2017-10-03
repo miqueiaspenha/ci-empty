@@ -36,3 +36,5 @@ composer.lock
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+*.env
