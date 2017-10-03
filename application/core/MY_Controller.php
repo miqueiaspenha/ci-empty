@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Firebase\JWT\JWT;
+
 class MY_Controller extends CI_Controller
 {
 
