@@ -38,3 +38,4 @@ composer.lock
 /tests/results/
 
 *.env
+*.db
