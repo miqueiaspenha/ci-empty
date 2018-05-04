@@ -10,8 +10,7 @@ class Sendemail
     public function __construct()
     {
         $this->mail = new PHPMailer();
-
-        $this->mail->SMTPDebug = 0;
+        $this->mail->SMTPDebug = getenv('MAIL_DEBUG');
         $this->mail->isSMTP();
         $this->mail->SMTPAuth = true;
         $this->mail->Timeout = 60;
@@ -24,7 +23,11 @@ class Sendemail
         $this->mail->Port = getenv('MAIL_PORT');
         $this->mail->Username = getenv('MAIL_USER');
         $this->mail->Password = getenv('MAIL_PASSWORD');
-        $this->mail->setFrom(getenv('MAIL_FROM'), getenv('MAIL_NAME'));
+    }
+
+    public function set_from($email, $name)
+    {
+        $this->mail->setFrom($email, $name);
     }
 
     public function set_address($email = '', $name = '')

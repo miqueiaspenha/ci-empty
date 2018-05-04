@@ -1,30 +1,23 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migrate extends MY_Controller
+class Migrate extends CI_Controller
 {
-
-    public function __construct()
+    public function index()
     {
-        parent::__construct();
-    }
-
-    public function index($version = '')
-    {
+        if (!$this->input->is_cli_request()) {
+            echo '<h1>Acesso restrito ao console!</h1>';
+            return;
+        }
 
         $this->load->library('migration');
 
-        if ($version) {
-            $retorno = $this->migration->version($version);
-        } else {
-            $retorno = $this->migration->current();
-        }
+        $retorno = ($version) ? $this->migration->version($version) : $this->migration->current();
 
-        if (!$retorno) {
+        if ($retorno) {
             show_error($this->migration->error_string());
             return;
-        } else {
-            echo 'Migration completed.';
         }
+        echo 'Migration completed.';
     }
 }
