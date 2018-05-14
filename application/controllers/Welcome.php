@@ -21,6 +21,6 @@ class Welcome extends MY_Controller
      */
     public function index()
     {
-        $this->template->load('template', 'welcome_message');
+        $this->twig->display('welcome_message');
     }
 }

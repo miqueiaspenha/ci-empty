@@ -1,0 +1,40 @@
+#!/usr/bin/php
+<?php
+function runserver($host, $port = '8080')
+{
+	if(!$host) {
+		$host = '0.0.0.0';
+	}
+	if(!$port) {
+		$port = '8080';
+	}
+	echo 'Listening on http://'.$host.':'.$port.PHP_EOL;
+	echo 'Press Ctrl-C to quit'.PHP_EOL;
+	echo shell_exec('php -S '.$host.':'.$port);
+}
+function migrate($version  = '')
+{
+	if($version < 0) {
+		echo 'You have not passed the version'.PHP_EOL;
+		exit;
+	}
+	echo shell_exec('php index.php migrate index '.$version);
+}
+if(!isset($argv[1])) {
+	echo 'No command was passed.'.PHP_EOL;
+	exit;
+}
+switch ($argv[1]) {
+	case 'runserver':
+		$host = $argv[2] ?? '';
+		$port = $argv[3] ?? '';
+		runserver($host, $port);
+		break;
+	case 'migrate':
+		$version = $argv[2] ?? '';
+		migrate($version);
+		break;
+	default:
+		echo 'Commando not identified.'.PHP_EOL;
+		break;
+}

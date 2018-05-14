@@ -14,8 +14,7 @@ class MY_Form_validation extends CI_Form_validation
 
     public function rule_example($value)
     {
-        $variable = false;
-        if ($variable) {
+        if ($value) {
             $this->set_message('rule_example', 'message');
             return false;
         }
