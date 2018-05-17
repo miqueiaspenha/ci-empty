@@ -18,7 +18,7 @@ sudo mv composer.phar /usr/local/bin/composer
 #sudo sed -i "s/#listen_address.*/listen_addresses '*'/" /etc/postgresql/9.5/main/postgresql.conf
 #sudo echo "host    all    all    0.0.0.0/0    md5" | sudo tee --append /etc/postgresql/9.5/main/pg_hba.conf
 #sudo su postgres -c "psql -c \"CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'; \" "
-#sudo su postgre -c "psql -c \"CREATE DATABASE myproject OWNER vagrant;\""
+#sudo su postgres -c "psql -c \"CREATE DATABASE name_project OWNER vagrant;\" "
 #sudo /etc/init.d/postgresql restart
 
 sudo timedatectl set-timezone America/Fortaleza

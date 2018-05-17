@@ -121,7 +121,7 @@ class Twig
     /**
      * Renders Twig Template and Set Output
      *
-     * @param string $view   Template filename without `.twig`
+     * @param string $view   Template filename without `.html.twig`
      * @param array  $params Array of parameters to pass to the template
      */
     public function display($view, $params = [])
@@ -133,7 +133,7 @@ class Twig
     /**
      * Renders Twig Template and Returns as String
      *
-     * @param string $view   Template filename without `.twig`
+     * @param string $view   Template filename without `.html.twig`
      * @param array  $params Array of parameters to pass to the template
      * @return string
      */
@@ -144,7 +144,7 @@ class Twig
         // after loading CodeIgniter functions in a controller.
         $this->addFunctions();
 
-        $view = $view . '.twig';
+        $view = $view . '.html.twig';
         return $this->twig->render($view, $params);
     }
 
