@@ -9,6 +9,18 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->set_session();
+    }
+
+    protected function set_session()
+    {
+        if(!class_exists('CI_Session')) {
+            return;
+        }
+        if(!class_exists('Twig')) {
+            return;
+        }
+        $this->twig->addGlobal('session', $this->session);
     }
 }
 

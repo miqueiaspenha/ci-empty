@@ -18,7 +18,7 @@ function migrate($version  = '')
 		echo 'You have not passed the version'.PHP_EOL;
 		exit;
 	}
-	echo shell_exec('php index.php migrate index '.$version);
+	echo shell_exec('php public/index.php migrate index '.$version);
 }
 if(!isset($argv[1])) {
 	echo 'No command was passed.'.PHP_EOL;

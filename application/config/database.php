@@ -73,12 +73,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = true;
 
+function set_path_db($drive)
+{
+    $types = ['sqlite', 'sqlite3'];
+    return in_array($drive, $types) ? '../application/': '';
+}
+
 $db['default'] = array(
     'dsn' => '',
     'hostname' => getenv('DB_HOSTNAME'),
     'username' => getenv('DB_USER'),
     'password' => getenv('DB_PASSWORD'),
-    'database' => getenv('DB_NAME'),
+    'database' => set_path_db(getenv('DB_DRIVER')).getenv('DB_NAME'),
     'dbdriver' => getenv('DB_DRIVER'),
     'dbprefix' => '',
     'pconnect' => false,

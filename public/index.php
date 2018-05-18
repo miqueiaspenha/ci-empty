@@ -93,7 +93,7 @@ switch (ENVIRONMENT) {
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-$system_path = 'system';
+$system_path = '../system';
 
 /*
  *---------------------------------------------------------------
@@ -110,7 +110,7 @@ $system_path = 'system';
  *
  * NO TRAILING SLASH!
  */
-$application_folder = 'application';
+$application_folder = '../application';
 
 /*
  *---------------------------------------------------------------
@@ -275,7 +275,7 @@ if (!isset($view_folder[0]) && is_dir(APPPATH . 'views' . DIRECTORY_SEPARATOR)) 
 define('VIEWPATH', $view_folder . DIRECTORY_SEPARATOR);
 
 //definindo configuração do dotenv
-require_once FCPATH . 'vendor/autoload.php';
+require_once FCPATH . '../vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(APPPATH);
 $dotenv->load();
 

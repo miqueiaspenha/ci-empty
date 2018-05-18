@@ -23,3 +23,5 @@ sudo mv composer.phar /usr/local/bin/composer
 
 sudo timedatectl set-timezone America/Fortaleza
 export TZ=America/Fortaleza
+
+sudo locale-gen pt_BR.UTF-8
