@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Migrate extends CI_Controller
 {
-    public function index()
+    public function index($version = '')
     {
         if (!$this->input->is_cli_request()) {
             echo '<h1>Acesso restrito ao console!</h1>';
